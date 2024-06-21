@@ -1,12 +1,12 @@
-{% extends 'base.html' %} {% block content %}
+{% extends './base.html' %} {% block content %}
 <h1>Editar Restaurante</h1>
-<form action="" method="PUT">
+<form action="" method="POST">
   {% csrf_token %}
   <fieldset>
     <label for="name">Nome:</label>
     <input type="text" name="name" value="{{ restaurant.name }}" />
     <input type="submit" value="Confirmar" />
-    <a href="">Cancelar</a>
+    <a href="{% url 'home' %}">Cancelar</a>
   </fieldset>
 </form>
 {% endblock content %}

@@ -1,6 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends './base.html' %} {% block content %}
 <h1>Restaurantes no MenuHub</h1>
-{% if restaurants %} {% for restaurant in restaurants %}
+{% if restaurants %}
 
 <table>
   <thead>
@@ -8,12 +8,16 @@
     <th>Opções</th>
   </thead>
   <tbody>
-    <td><p>{{ restaurant }}</p></td>
-    <td>
-      <a href="edit/{{ restaurant.id }}">Editar</a> |
-      <a href="deletar/{{ restaurant.id }}">Deletar</a>
-    </td>
+    {% for restaurant in restaurants %}
+    <tr>
+      <td><p>{{ restaurant.name }}</p></td>
+      <td>
+        <a href="edit/{{ restaurant.id }}">Editar</a> |
+        <a href="delete/{{ restaurant.id }}">Deletar</a>
+      </td>
+    </tr>
+    {% endfor %}
   </tbody>
 </table>
 
-{% endfor %} {% endif %} {% endblock content %}
+{% endif %} {% endblock content %}
