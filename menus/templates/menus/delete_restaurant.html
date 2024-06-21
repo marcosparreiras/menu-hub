@@ -1,10 +1,10 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Editar Restaurante</h1>
-<form action="" method="PUT">
+<h1>Deletar Restaurante</h1>
+<form action="" method="DELETE">
   {% csrf_token %}
   <fieldset>
     <label for="name">Nome:</label>
-    <input type="text" name="name" value="{{ restaurant.name }}" />
+    <p>{{ restaurant.name }}</p>
     <input type="submit" value="Confirmar" />
     <a href="">Cancelar</a>
   </fieldset>

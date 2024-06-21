@@ -10,7 +10,7 @@ def show_restaurants(request):
 
 def edit_restaurants(request, restaurant_id):
     restaurant = Restaurant.objects.get(pk=restaurant_id)
-    if request.method == "POST":
+    if request.method == "PUT":
         form_data = request.POST
         restaurant.name = form_data.get("name")
         restaurant.save()
@@ -18,3 +18,12 @@ def edit_restaurants(request, restaurant_id):
 
     context = {"restaurant": restaurant}
     return render(request, "menus/edit_restaurant.html", context)
+
+
+def delete_restaurant(request, restaurant_id):
+    restaurant = Restaurant.objects.get(pk=restaurant_id)
+    if request.method == "DELETE":
+        restaurant = Restaurant.delete()
+        return redirect("/")
+    context = {"restaurant": restaurant}
+    return render(request, "menus/delete_restaurant.html", context)
