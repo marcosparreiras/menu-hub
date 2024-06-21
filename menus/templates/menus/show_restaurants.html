@@ -1,0 +1,19 @@
+{% block content %}
+<h1>Restaurantes no MenuHub</h1>
+{% if restaurants %} {% for restaurant in restaurants %}
+
+<table>
+  <thead>
+    <th>Nome</th>
+    <th>Opções</th>
+  </thead>
+  <tbody>
+    <td><p>{{ restaurant }}</p></td>
+    <td>
+      <a href="edit/{{ restaurant.id }}">Editar</a> |
+      <a href="deletar/{{ restaurant.id }}">Deletar</a>
+    </td>
+  </tbody>
+</table>
+
+{% endfor %} {% endif %} {% endblock content %}
